@@ -1,4 +1,4 @@
-<title>A40v3</title>
+<title>A40v3 — Notas de versão</title>
 <style>
   /* ---------- Montserrat: tipografia padrão da marca (Brandbook, cap. 4) ---------- */
   @font-face {
@@ -539,6 +539,69 @@
   .resource-link .arrow { transition: transform .15s ease; }
   .resource-link:hover .arrow { transform: translateX(3px); }
 </style>
+<style>
+  .changelog {
+    display: flex;
+    flex-direction: column;
+    max-width: 78ch;
+  }
+
+  .release {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .release:first-child { padding-top: 0; }
+  .release:last-child { border-bottom: none; }
+
+  .release-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .release-version {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .release-date {
+    font-size: 0.8125rem;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .release-badge {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--warm-text);
+    background: var(--surface-2);
+    border-radius: var(--r);
+    padding: 2px 8px;
+  }
+
+  .release ul {
+    margin: 0;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--ink-2);
+    font-size: 0.875rem;
+  }
+
+  .release ul li::marker { color: var(--orange); }
+
+  .back-link { margin-bottom: 4px; }
+</style>
 <div class="wrap">
 
   <header class="masthead">
@@ -546,43 +609,241 @@
     <img class="logo logo-dark" src="data:image/png;base64,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" alt="Maxtrack" width="448" height="97">
     <div class="brand-rule" aria-hidden="true"><i></i><i></i><i></i></div>
     <p class="eyebrow">Rastreador A40v3</p>
-    <h1>Recursos do A40v3</h1>
+    <h1>Notas de versão</h1>
     <p class="lede">
-      Acesse as ferramentas e a documentação oficial do A40v3.
+      Histórico de versões do firmware do A40v3.
     </p>
   </header>
 
-  <div class="resources">
+  <a class="resource-link secondary back-link" href="index.html">
+    <span class="arrow" aria-hidden="true">&larr;</span> Voltar para os recursos
+  </a>
 
-    <section class="card">
-      <div class="card-head">
-        <h2>Calculadora de autonomia da bateria</h2>
-        <p>Simule o perfil de uso em campo e veja a autonomia estimada da bateria do A40v3.</p>
-      </div>
-      <a class="resource-link" href="batteryCalculator.html">
-        Abrir calculadora <span class="arrow" aria-hidden="true">&rarr;</span>
-      </a>
-    </section>
+  <div class="changelog">
 
-    <section class="card">
-      <div class="card-head">
-        <h2>Manual do produto</h2>
-        <p>Baixe o manual completo do A40v3 em PDF, com instruções de instalação e operação.</p>
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.1.8</p>
+        <span class="release-date">12/08/2026</span>
       </div>
-      <a class="resource-link secondary" href="docs/manual.pdf" download>
-        Baixar manual <span class="arrow" aria-hidden="true">&darr;</span>
-      </a>
-    </section>
+      <ul>
+        <li>Adicionado transmissão de confirmação para comandos LoRaWAN de entrada em modo estoque.</li>
+        <li>Adicionado suporte a senha para comunicação BLE</li>
+        <li>Remoção das configurações de ButtonActions</li>
+      </ul>
+    </article>
 
-    <section class="card">
-      <div class="card-head">
-        <h2>Notas de versão</h2>
-        <p>Veja o histórico de versões do firmware do A40v3.</p>
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.1.7</p>
+        <span class="release-date">08/06/2026</span>
       </div>
-      <a class="resource-link secondary" href="releaseNotes.html">
-        Ver notas de versão <span class="arrow" aria-hidden="true">&rarr;</span>
-      </a>
-    </section>
+      <ul>
+        <li>Modo estoque: interrupções do eixo Y do acelerômetro desabilitadas para evitar o despertar indevido do dispositivo durante o transporte.</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.1.6</p>
+        <span class="release-date">25/05/2026</span>
+      </div>
+      <ul>
+        <li>Correção do modo estoque, quando ativado com equipamento em movimento.</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.1.4</p>
+        <span class="release-date">06/05/2026</span>
+      </div>
+      <ul>
+        <li>Teste Fábrica - Correção da persistência do CRC32 do perfil</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.1.3</p>
+        <span class="release-date">06/05/2026</span>
+      </div>
+      <ul>
+        <li>Teste Fábrica - Remover recálculo do CRC32 do perfil após reinicialização</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.1.2</p>
+        <span class="release-date">08/04/2026</span>
+      </div>
+      <ul>
+        <li>Redução no intervalo de advertising ble para 1 segundo</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.1.1</p>
+        <span class="release-date">07/04/2026</span>
+      </div>
+      <ul>
+        <li>Melhorias no calculo e reporte do consumo de bateria</li>
+        <li>Reporte do consumo de bateria via BLE</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.1.0</p>
+        <span class="release-date">02/04/2026</span>
+      </div>
+      <ul>
+        <li>Teste Fábrica - Somente responder comandos de teste se estiver em modo teste</li>
+        <li>Teste Fábrica - Habilita modo teste com botão teste da jiga</li>
+        <li>Teste Fábrica - Incluído teste de BLE</li>
+        <li>Novo modo estoque (com BLE)</li>
+        <li>Incluído comando para ativar/desativar modo estoque</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.0.9</p>
+        <span class="release-date">12/03/2026</span>
+      </div>
+      <ul>
+        <li>Melhorias no consumo em modo estoque/sleep</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.0.8</p>
+        <span class="release-date">10/03/2026</span>
+      </div>
+      <ul>
+        <li>Melhorias na transferência de arquivo via LoRa</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.0.7</p>
+        <span class="release-date">10/02/2026</span>
+      </div>
+      <ul>
+        <li>Melhorias entrada e saída do modo estoque</li>
+        <li>[BLE] Inclusão da configuração de potência</li>
+        <li>[BLE] Ajuste automático do RSSI Reference (cálculo de distância)</li>
+        <li>[BLE] Aperfeiçoamento do reporte de movimento</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.0.6</p>
+        <span class="release-date">16/01/2026</span>
+      </div>
+      <ul>
+        <li>Melhorias no teste de fábrica (LoRa)</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.0.5</p>
+        <span class="release-date">09/01/2026</span>
+      </div>
+      <ul>
+        <li>Melhorias no consumo em modo estoque (BLE beacon)</li>
+        <li>Melhorias no teste de fábrica (reporte do pacote de status)</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.0.4</p>
+        <span class="release-date">05/01/2026</span>
+      </div>
+      <ul>
+        <li>Inclusão crc no pacote de status maxpb</li>
+        <li>Melhorias no protocolo eddystone mxt</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.0.3</p>
+        <span class="release-date">26/12/2025</span>
+      </div>
+      <ul>
+        <li>Habilitar rs232 em modo teste para fábrica</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.0.2</p>
+        <span class="release-date">23/12/2025</span>
+      </div>
+      <ul>
+        <li>Mudanças na configuração padrão, inicia em modo beacon BLE</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.0.1</p>
+        <span class="release-date">15/12/2025</span>
+      </div>
+      <ul>
+        <li>Alteração do intervalo de tx BLE (10 segundos)</li>
+        <li>Melhorias no protocolo beacon BLE</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 2.0.0</p>
+        <span class="release-date">15/12/2025</span>
+      </div>
+      <ul>
+        <li>Inclusão do modo BLE (beacons)</li>
+        <li>Inclusão do novo Bootloader BLE (possibilidade de atualizar via BLE)</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 1.1.3</p>
+        <span class="release-date">12/06/2025</span>
+      </div>
+      <ul>
+        <li>Correção da identificação do modelo do produto</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 1.1.2</p>
+        <span class="release-date">03/06/2025</span>
+      </div>
+      <ul>
+        <li>Melhorias no recebimento de comandos LoRaWAN</li>
+      </ul>
+    </article>
+
+    <article class="release">
+      <div class="release-head">
+        <p class="release-version">Versão 1.1.0</p>
+        <span class="release-date">05/02/2025</span>
+      </div>
+      <ul>
+        <li>Versão Inicial</li>
+      </ul>
+    </article>
 
   </div>
 
